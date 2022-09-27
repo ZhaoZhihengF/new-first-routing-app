@@ -10,11 +10,20 @@ export class SpotifyService {
   //Ottengo il modulo HttpClient
   constructor(private http: HttpClient) { }
 
+  getTrack(id: string | null) {
+    const url = `https://api.spotify.com/v1/tracks/${id}`;
+    const headers = new HttpHeaders({
+      Authorization:
+        'Bearer BQDp56ht-67GRNM_69ghv-CHeiK5_cCK_ZbOUrp_NUxzPtzELm1RgwON_-e_PEleGnbg2jEHDXuMbBXjCa4lh3E8Ha7-joKk78WayrV8oHTkjJWIEUjvO_y2MeCFV9dctpp_d-aAst-dttC9D_gMctNSeOq2KsTWINcZaUgxhN2c8BXd9GaXm1r1mBlEmNE'
+    });
+    
+    return this.http.get(url, { headers });
+  }
   searchTrack(query: string) {
     const url = `https://api.spotify.com/v1/search?q=${query}&type=track`;
     const headers = new HttpHeaders({
       Authorization:
-        'Bearer BQDMD88whjCzdSnn5OJ56AotWaG1Dqczb8m1A7iV74LEBCUlpL5hOuTKHaFFubWcAKhIw5lVM7p0HCsV9ZEQ_xDPtkPfpFtAFWzYjb7SB_UyH6KHkpiY_48PgezJMD_sH2yflxSOMr4eRupk88y7ZBuWDvaALJdT1vf8PJXirK_M6QmsHLG0aNcZvcd4a84'
+        'Bearer BQDp56ht-67GRNM_69ghv-CHeiK5_cCK_ZbOUrp_NUxzPtzELm1RgwON_-e_PEleGnbg2jEHDXuMbBXjCa4lh3E8Ha7-joKk78WayrV8oHTkjJWIEUjvO_y2MeCFV9dctpp_d-aAst-dttC9D_gMctNSeOq2KsTWINcZaUgxhN2c8BXd9GaXm1r1mBlEmNE-pej93h_1dOX0lCOMgoqejZWYysrkz7-inFSOyVTbWRAgghtFvcbXLBY76QQZLlr2NbFFI5H98'
     });
 
     let obsTracks = this.http.get(url, { headers });
