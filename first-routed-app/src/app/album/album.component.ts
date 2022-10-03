@@ -40,7 +40,12 @@ export class AlbumComponent implements OnInit {
    //spotifyServiceObs va dichiarato
    this.spotifyServiceObs = this.service.getAlbum(albumId!
     ) ;
-   this.spotifyServiceObs.subscribe((data : any)=>this.album = data)
+   this.spotifyServiceObs.subscribe(
+    (data : any)=>
+    {
+      this.album = data;
+      console.log(this.album)
+    })
  }
  back() : void
  {

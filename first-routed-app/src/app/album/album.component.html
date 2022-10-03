@@ -1,7 +1,13 @@
 <div *ngIf="album">
     <h1>{{ album.name }}</h1>
     <p>
-        <img src="{{ album.album.images[1].url }}">
+        <img src="{{ album.images[1].url }}">
     </p>
+   
+    <div class="col-sm-6 col-md-4" *ngFor="let a of album.tracks.items">
+        <a [routerLink]="['/tracks', a.id]">
+            {{ a.name }}
+          </a>
+    </div>
     <p><a href (click)="back()">Back</a></p>
 </div>

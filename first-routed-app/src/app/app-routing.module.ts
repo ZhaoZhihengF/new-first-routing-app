@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'search', component: SearchComponent },
   { path: 'tracks/:id', component: TrackComponent },
-  { path: 'album/:id', component: AlbumComponent },
+  { path: 'albums/:id', component: AlbumComponent },
   { path: '',   redirectTo: '/search', pathMatch: 'full' }
 ];
 
